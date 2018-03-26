@@ -1,4 +1,4 @@
 'use-script'
 window.onload = function() {
-  console.log('Olá');
+  document.querySelector('#loader').classList.add("hidden");
 };
