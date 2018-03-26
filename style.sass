@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto')
+
+// SASS VARIABLE
+$black: #000000
+$white: #ffffff
+$yellow: #F0DC1B
+$grey: #eeeeee
+
+// SASS EXTENDS
+%blockCenter
+	margin-left: auto
+	margin-right: auto
+
+
+%transition
+	-webkit-transition: .4s all linear
+	transition: .4s all linear
+
+
+// RESET CSS
+*
+	padding: 0
+	margin: 0
+	text-decoration: none
+
+html, body
+	height: 100%
+
+// INITIAL CSS STYLE
+.gridD
+	width: 100%
+	height: 100%
+	max-width: 1200px
+	@extend %blockCenter
+	@media(max-width: 768px)
+		width: 95%
+
+.d-flex
+	display: flex
+
+.title
+	text-align: center
+	padding-bottom: 40px
+	&::after
+		content: ''
+		display: block
+		margin-left: auto
+		margin-right: auto
+		width: 50px
+		height: 3px
+		background: $black
+		margin-top: 10px
+	h2
+		font-size: 32px
+		color: $black
+		font-weight: 700
+		text-transform: uppercase
+		small
+			font-size: .7em
+
+section
+	padding: 60px 0
+
+body
+	font-family: 'Roboto', sans-serif
+	font-size: 16px
+	h1
+		small
+			display: block
+
+header
+	.header-top
+		padding: 5px 0
+		text-align: center
+		background: $yellow
+		p
+			font-weight: 900
+			text-transform: uppercase
+			font-size: 12px
+	nav
+		background: $grey
+		height: 80px
+		.gridD
+			height: 100%
+			.d-flex
+				justify-content: space-between
+				align-items: center
+				height: 100%
+		.logo
+			max-width: 60px
+			background: $yellow
+			img
+				max-width: 100%
+				height: auto
+				display: block
+		ul
+			li
+				display: inline-block
+				margin: 0 10px
+				a
+					display: block
+					color: $black
+					font-weight: 600
+					text-transform: uppercase
+					font-size: 14px
+					@extend %transition
+					&:hover
+						color: $yellow
+
+#banner
+	height: 480px
+	background: url('https://img00.deviantart.net/0641/i/2017/127/b/7/javascript_wallpaper_by_mrhudson-db8gw2e.png') center center no-repeat
+	background-size: 100% auto
+	position: relative
+	.d-flex
+		align-items: center
+		justify-content: center
+		height: 100%
+	&::before
+		content: ''
+		display: block
+		background: rgba($black, .5)
+		position: absolute
+		top: 0
+		left: 0
+		height: 100%
+		width: 100%
+	h1
+		font-size: 46px
+		color: $white
+		position: relative
+		text-transform: uppercase
+		font-weight: 900
+		letter-spacing: 3px
+		text-align: center
+		small
+			display: block
+			font-size: .5em
+
+#about
+	.d-flex
+		align-items: center
+	p
+		font-size: 16px
+		text-align: justify
+	article
+		padding-left: 15px
+		padding-right: 15px
+		width: 50%
+		p
+			padding-bottom: 20px
+			&:last-child
+				padding-bottom: 0
+
+#frameworks
+	background: $grey
+	.d-flex
+		margin-top: 30px
+		justify-content: space-between
+		align-items: center
+		max-width: 992px
+		margin-left: auto
+		margin-right: auto
+		img
+			display: block
+			height: 100px
+			margin-left: auto
+			margin-right: auto
+	.item
+		text-align: center
+		padding: 15px 0
+		width: 23%
+		border-radius: 15px
+		h3
+			margin-top: 15px
+			opacity: 0
+			color: $black
+			text-transform: uppercase
+			@extend %transition
+		&:hover
+			background: $white
+			h3
+				opacity: 1
