@@ -1,9 +1,9 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto");
-.gridD {
+.gridD, #contact form {
   margin-left: auto;
   margin-right: auto; }
 
-#loader, header nav ul li a, #frameworks .item h3 {
+#loader, header nav ul li a, #frameworks .item h3, #contact .form-group input[type="submit"] {
   -webkit-transition: 0.4s all linear;
   transition: 0.4s all linear; }
 
@@ -42,6 +42,12 @@ html, body {
     color: #000000;
     font-weight: 700;
     text-transform: uppercase; }
+@media(max-width: 768px) {
+  .title h2 {
+    font-size: 28px; } }
+@media(max-width: 580px) {
+  .title h2 {
+    font-size: 22px; } }
     .title h2 small {
       font-size: 0.7em;
       display: block; }
@@ -56,20 +62,33 @@ section {
   width: 100%;
   height: 100%;
   background: #F0DC1B;
-  z-index: 10; }
-  #loader .line {
-    display: block;
-    width: 100%;
-    height: 5px;
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    background: #000000; }
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  #loader .icon {
+    border: 16px solid #ffffff;
+    border-radius: 50%;
+    border-top: 16px solid #000000;
+    border-bottom: 16px solid #000000;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite; }
   #loader.hidden {
     opacity: 0;
     visibility: hidden; }
 
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(360deg); } }
+@keyframes spin {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg); } }
 body {
   font-family: "Roboto", sans-serif;
   font-size: 16px; }
@@ -115,8 +134,12 @@ header nav {
 #banner {
   height: 480px;
   background: url("https://img00.deviantart.net/0641/i/2017/127/b/7/javascript_wallpaper_by_mrhudson-db8gw2e.png") center center no-repeat;
-  background-size: 100% auto;
+  background-size: cover;
+  background-attachment: fixed;
   position: relative; }
+@media(max-width: 768px) {
+  #banner {
+    height: 350px; } }
   #banner .d-flex {
     align-items: center;
     justify-content: center;
@@ -144,6 +167,9 @@ header nav {
 
 #about .d-flex {
   align-items: center; }
+@media(max-width: 992px) {
+  #about .d-flex {
+    flex-direction: column-reverse; } }
 #about p {
   font-size: 16px;
   text-align: justify; }
@@ -151,11 +177,20 @@ header nav {
   padding-left: 15px;
   padding-right: 15px;
   width: 50%; }
+@media(max-width: 992px) {
+  #about article {
+    width: auto; } }
   #about article p {
     padding-bottom: 20px; }
     #about article p:last-child {
       padding-bottom: 0; }
-
+  #about article img {
+    display: block;
+    max-width: 100%;
+    height: auto; }
+@media(max-width: 992px) {
+  #about article img {
+    margin-bottom: 20px; } }
 #frameworks {
   background: #eeeeee; }
   #frameworks .d-flex {
@@ -165,6 +200,9 @@ header nav {
     max-width: 992px;
     margin-left: auto;
     margin-right: auto; }
+@media(max-width: 768px) {
+  #frameworks .d-flex {
+    flex-wrap: wrap; } }
     #frameworks .d-flex img {
       display: block;
       height: 100px;
@@ -175,6 +213,9 @@ header nav {
     padding: 15px 0;
     width: 23%;
     border-radius: 15px; }
+@media(max-width: 768px) {
+  #frameworks .item {
+    width: 150px; } }
     #frameworks .item h3 {
       margin-top: 15px;
       opacity: 0;
@@ -187,10 +228,50 @@ header nav {
 
 #contact {
   background: rgba(240, 220, 27, 0.3); }
+  #contact form {
+    max-width: 320px; }
   #contact .form-group {
     position: relative; }
+    #contact .form-group label {
+      font-size: 12px;
+      font-weight: 900;
+      position: absolute;
+      top: 50%;
+      left: 0; }
     #contact .form-group input {
+      width: 100%;
+      height: 30px;
       -webkit-appearance: none;
-      display: block; }
+      display: block;
+      border: none;
+      background: transparent;
+      border-bottom: 2px solid #000000;
+      margin: 10px 0; }
+      #contact .form-group input::placeholder {
+        color: #000000;
+        font-weight: 700; }
+      #contact .form-group input[type="submit"] {
+        background: rgba(0, 128, 0, 0.7);
+        color: #ffffff;
+        max-width: 120px;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 5px;
+        font-weight: 700;
+        text-transform: uppercase;
+        cursor: pointer; }
+        #contact .form-group input[type="submit"]:hover {
+          border: none; }
+
+footer {
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(240, 220, 27, 0.6); }
+  footer p {
+    font-size: 14px;
+    color: #000000;
+    font-weight: 700; }
 
 /*# sourceMappingURL=style.css.map */
