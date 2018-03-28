@@ -1,9 +1,9 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto");
-.gridD, #contact form {
+.gridD, #contact #errors, #contact #success, #contact .form-group input {
   margin-left: auto;
   margin-right: auto; }
 
-#loader, header nav ul li a, #frameworks .item h3, #contact .form-group input[type="submit"] {
+#loader, header #btn-mobile span, header nav, header nav ul, header nav ul li a, #frameworks .item h3, #contact .form-group input[type="submit"] {
   -webkit-transition: 0.4s all linear;
   transition: 0.4s all linear; }
 
@@ -95,43 +95,105 @@ body {
   body h1 small {
     display: block; }
 
-header .header-top {
-  padding: 5px 0;
-  text-align: center;
-  background: #F0DC1B; }
-  header .header-top p {
-    font-weight: 900;
-    text-transform: uppercase;
-    font-size: 12px; }
-header nav {
-  background: #eeeeee;
-  height: 80px; }
-  header nav .gridD {
-    height: 100%; }
-    header nav .gridD .d-flex {
-      justify-content: space-between;
-      align-items: center;
-      height: 100%; }
-  header nav .logo {
-    max-width: 60px;
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2; }
+  header .header-top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 25px;
+    text-align: center;
     background: #F0DC1B; }
-    header nav .logo img {
-      max-width: 100%;
-      height: auto;
-      display: block; }
-  header nav ul li {
-    display: inline-block;
-    margin: 0 10px; }
-    header nav ul li a {
-      display: block;
-      color: #000000;
-      font-weight: 600;
+    header .header-top p {
+      font-weight: 900;
       text-transform: uppercase;
-      font-size: 14px; }
-      header nav ul li a:hover {
-        color: #F0DC1B; }
+      font-size: 12px; }
+  header.fixed nav {
+    position: fixed;
+    top: 0; }
+  header #btn-mobile {
+    max-width: 40px;
+    display: none; }
+@media(max-width: 768px) {
+  header #btn-mobile {
+    display: block; } }
+    header #btn-mobile span {
+      width: 40px;
+      height: 3px;
+      background: #000000;
+      display: block;
+      position: relative; }
+      header #btn-mobile span:nth-child(2) {
+        margin: 10px 0; }
+    header #btn-mobile.active span:first-child {
+      transform: rotate(45deg);
+      top: 13px; }
+    header #btn-mobile.active span:nth-child(2) {
+      opacity: 0;
+      visibily: hidden; }
+    header #btn-mobile.active span:last-child {
+      transform: rotate(135deg);
+      bottom: 13px; }
+  header nav {
+    background: #eeeeee;
+    height: 80px;
+    position: absolute;
+    top: 25px;
+    left: 0;
+    width: 100%;
+    z-index: 2; }
+    header nav .gridD {
+      height: 100%; }
+      header nav .gridD .d-flex {
+        justify-content: space-between;
+        align-items: center;
+        height: 100%; }
+    header nav .logo {
+      max-width: 60px;
+      background: #F0DC1B; }
+      header nav .logo img {
+        max-width: 100%;
+        height: auto;
+        display: block; }
+@media(max-width: 768px) {
+  header nav ul {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 0;
+    height: auto;
+    overflow: hidden;
+    background: #eeeeee;
+    border-top: 2px solid #F0DC1B;
+    padding: 5px 0; } }
+@media(max-width: 768px) {
+  header nav ul.open {
+    width: 100%; } }
+    header nav ul li {
+      display: inline-block;
+      margin: 0 10px; }
+@media(max-width: 768px) {
+  header nav ul li {
+    display: block;
+    margin: 0; } }
+      header nav ul li a {
+        display: block;
+        color: #000000;
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 14px; }
+@media(max-width: 768px) {
+  header nav ul li a {
+    padding: 10px 5px; } }
+        header nav ul li a:hover {
+          color: #F0DC1B; }
 
 #banner {
+  margin-top: 105px;
   height: 480px;
   background: url("https://img00.deviantart.net/0641/i/2017/127/b/7/javascript_wallpaper_by_mrhudson-db8gw2e.png") center center no-repeat;
   background-size: cover;
@@ -228,8 +290,22 @@ header nav {
 
 #contact {
   background: rgba(240, 220, 27, 0.3); }
-  #contact form {
-    max-width: 320px; }
+  #contact #errors, #contact #success {
+    text-align: center;
+    text-transform: uppercase;
+    max-width: 320px;
+    padding: 5px;
+    margin-bottom: 20px;
+    display: none; }
+    #contact #errors p, #contact #success p {
+      color: #ffffff;
+      fonte-size: 14px;
+      font-weight: 700;
+      padding: 5px; }
+  #contact #errors {
+    background: red; }
+  #contact #success {
+    background: green; }
   #contact .form-group {
     position: relative; }
     #contact .form-group label {
@@ -239,21 +315,21 @@ header nav {
       top: 50%;
       left: 0; }
     #contact .form-group input {
-      width: 100%;
+      width: 320px;
+      margin: 10px auto;
       height: 30px;
       -webkit-appearance: none;
       display: block;
       border: none;
       background: transparent;
-      border-bottom: 2px solid #000000;
-      margin: 10px 0; }
+      border-bottom: 2px solid #000000; }
       #contact .form-group input::placeholder {
         color: #000000;
         font-weight: 700; }
       #contact .form-group input[type="submit"] {
         background: rgba(0, 128, 0, 0.7);
         color: #ffffff;
-        max-width: 120px;
+        width: 120px;
         margin-left: auto;
         margin-right: auto;
         border-radius: 5px;

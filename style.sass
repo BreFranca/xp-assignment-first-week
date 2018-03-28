@@ -111,17 +111,60 @@ body
 			display: block
 
 header
+	position: absolute
+	top: 0
+	left: 0
+	width: 100%
+	z-index: 2
 	.header-top
-		padding: 5px 0
+		display: flex
+		justify-content: center
+		align-items: center
+		height: 25px
 		text-align: center
 		background: $yellow
 		p
 			font-weight: 900
 			text-transform: uppercase
 			font-size: 12px
+	&.fixed
+		nav
+			position: fixed
+			top: 0
+	#btn-mobile
+		max-width: 40px
+		display: none
+		@media(max-width: 768px)
+			display: block
+		span
+			width: 40px
+			height: 3px
+			background: $black
+			display: block
+			position: relative
+			@extend %transition
+			&:nth-child(2)
+				margin: 10px 0
+		&.active
+			span
+				&:first-child
+					transform: rotate(45deg)
+					top: 13px
+				&:nth-child(2)
+					opacity: 0
+					visibily: hidden
+				&:last-child
+					transform: rotate(135deg)
+					bottom: 13px
 	nav
 		background: $grey
 		height: 80px
+		position: absolute
+		top: 25px
+		left: 0
+		width: 100%
+		z-index: 2
+		@extend %transition
 		.gridD
 			height: 100%
 			.d-flex
@@ -136,9 +179,26 @@ header
 				height: auto
 				display: block
 		ul
+			@extend %transition
+			@media(max-width: 768px)
+				position: absolute
+				top: 100%
+				left: 0
+				width: 0
+				height: auto
+				overflow: hidden
+				background: $grey
+				border-top: 2px solid $yellow
+				padding: 5px 0
+			&.open
+				@media(max-width: 768px)
+					width: 100%
 			li
 				display: inline-block
 				margin: 0 10px
+				@media(max-width: 768px)
+					display: block
+					margin: 0
 				a
 					display: block
 					color: $black
@@ -146,10 +206,13 @@ header
 					text-transform: uppercase
 					font-size: 14px
 					@extend %transition
+					@media(max-width: 768px)
+						padding: 10px 5px
 					&:hover
 						color: $yellow
 
 #banner
+	margin-top: 105px
 	height: 480px
 	background: url('https://img00.deviantart.net/0641/i/2017/127/b/7/javascript_wallpaper_by_mrhudson-db8gw2e.png') center center no-repeat
 	background-size: cover
@@ -243,9 +306,23 @@ header
 
 #contact
 	background: rgba($yellow, .3)	
-	form
+	#errors, #success
+		text-align: center
+		text-transform: uppercase
 		max-width: 320px
 		@extend %blockCenter
+		padding: 5px
+		margin-bottom: 20px
+		display: none
+		p	
+			color: $white
+			fonte-size: 14px
+			font-weight: 700
+			padding: 5px
+	#errors
+		background: red
+	#success
+		background: green
 	.form-group
 		position: relative
 		label
@@ -255,21 +332,22 @@ header
 			top: 50%
 			left: 0
 		input
-			width: 100%
+			width: 320px
+			margin: 10px auto
 			height: 30px
 			-webkit-appearance: none
 			display: block
 			border: none
 			background: transparent
 			border-bottom: 2px solid $black
-			margin: 10px 0
+			@extend %blockCenter
 			&::placeholder
 				color: $black
 				font-weight: 700
 			&[type="submit"]
 				background: rgba(green, .7)
 				color: $white
-				max-width: 120px
+				width: 120px
 				margin-left: auto
 				margin-right: auto
 				border-radius: 5px

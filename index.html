@@ -19,11 +19,9 @@
 	</div>
 	<!-- END - LOADER -->
 	<!-- START - HEADER -->
-	<header>
+	<header id="header">
 		<div class="header-top">
-			<div class="gridD">
-				<p>Javascript é vida</p>
-			</div>
+			<p>Javascript é vida</p>
 		</div>
 		<nav>
 			<div class="gridD">
@@ -31,21 +29,23 @@
 					<div class="logo">
 						<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Unofficial_JavaScript_logo.svg/480px-Unofficial_JavaScript_logo.svg.png" alt="Javascript">
 					</div>
-					<ul>
+					<div id="btn-mobile">
+						<span></span>
+						<span></span>
+						<span></span>
+					</div>
+					<ul id="nav-menu">
 						<li>
-							<a href="#banner">Home</a>
+							<a href="#banner" id="anchor1Link" class="anchor">Home</a>
 						</li>
 						<li>
-							<a href="#about">Sobre</a>
+							<a href="#about" id="anchor2Link" class="anchor">Sobre</a>
 						</li>
 						<li>
-							<a href="#frameworks">Frameworks</a>
+							<a href="#frameworks" id="anchor3Link" class="anchor">Frameworks</a>
 						</li>
 						<li>
-							<a href="#projects">Projetos</a>
-						</li>
-						<li>
-							<a href="#contact">Contato</a>
+							<a href="#contact" id="anchor4Link" class="anchor">Contato</a>
 						</li>
 					</ul>
 				</div>
@@ -90,7 +90,7 @@
 			<div class="gridD">
 				<div class="title">
 					<h2><small>Alguns</small>
-						<br>Frameworks / Bibliotecas</h2>
+						Frameworks / Bibliotecas</h2>
 				</div>
 				<div class="d-flex">
 					<a href="https://angularjs.org/" target="_blank" title="Angular JS" class="item">
@@ -113,50 +113,17 @@
 			</div>
 		</section>
 		<!-- END - FRAMEWORKS -->
-		<!-- START - PROJECTS -->
-		<section id="projects">
-			<div class="gridD">
-				<div class="title">
-					<h2>Projetos em Javascript</h2>
-				</div>
-				<div class="projects">
-					<div class="project">
-						<h3>Projeto 1</h3>
-						<a href="#">Ver Projeto</a>
-					</div>
-					<div class="project">
-						<h3>Projeto 1</h3>
-						<a href="#">Ver Projeto</a>
-					</div>
-					<div class="project">
-						<h3>Projeto 1</h3>
-						<a href="#">Ver Projeto</a>
-					</div>
-					<div class="project">
-						<h3>Projeto 1</h3>
-						<a href="#">Ver Projeto</a>
-					</div>
-					<div class="project">
-						<h3>Projeto 1</h3>
-						<a href="#">Ver Projeto</a>
-					</div>
-					<div class="project">
-						<h3>Projeto 1</h3>
-						<a href="#">Ver Projeto</a>
-					</div>
-				</div>
-			</div>
-		</section>
-		<!-- END - PROJECTS -->
 		<!-- START - CONTACT -->
 		<section id="contact">
 			<div class="gridD">
 				<div class="title">
 					<h2>Não usa Javascript na sua empresa?
-						<small>Fale Conosco</small></h2>
+						<small>Receba mais informações</small></h2>
 				</div>
 				<div class="content">
-					<form>
+					<!-- <form id="form"> -->
+						<div id="errors"></div>
+						<div id="success"></div>
 						<div class="form-group">
 							<input type="text" id="form-nome" name="form-nome" class="form-control" placeholder="Nome Completo">
 						</div>
@@ -164,12 +131,12 @@
 							<input type="text" id="form-email" name="form-email" class="form-control" placeholder="Email">
 						</div>
 						<div class="form-group">
-							<input type="text" id="form-emoresa" name="form-empresa" class="form-control" placeholder="Empresa">
+							<input type="text" id="form-empresa" name="form-empresa" class="form-control" placeholder="Empresa">
 						</div>
 						<div class="form-group">
-							<input type="submit" value="Enviar">
+							<input type="submit" value="Enviar" id="btn-send">
 						</div>
-					</form>
+					<!-- </form> -->
 				</div>
 			</div>
 		</section>
@@ -185,6 +152,7 @@
 	<!-- END - FOOTER -->
 	
 	<!-- START - SCRIPT -->
+	<script src="scroll-animate.js"></script>
 	<script src="scripts.js"></script>
 	<!-- END - SCRIPT -->
 </body>
